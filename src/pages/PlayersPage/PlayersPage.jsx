@@ -7,7 +7,7 @@ import {OverlayTrigger, Tooltip} from "react-bootstrap";
 export function PlayersPage() {
     const {data, error, isLoading, refetch} = useGetAllStatsQuery(undefined);
 
-    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+    const [sortConfig, setSortConfig] = useState({ key: 'play_time', direction: 'descending' });
 
     let sortedData = useMemo(() => {
         let sortableData = data ? [...data] : [];
