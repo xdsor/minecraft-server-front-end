@@ -1,0 +1,26 @@
+body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+h1 {
+    color: #32cd32;
+}
+nav {
+    margin-bottom: 20px;
+}
+.nav-links {
+    margin-bottom: 20px;
+}
+.nav-links a {
+    color: #ffa500;
+    text-decoration: none;
+    margin: 0 15px;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+.nav-links a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}

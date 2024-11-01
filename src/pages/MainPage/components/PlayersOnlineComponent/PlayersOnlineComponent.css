@@ -1,0 +1,5 @@
+@media (max-width: 400px) {
+    .players-online {
+        font-size: 1.1rem;
+    }
+}
