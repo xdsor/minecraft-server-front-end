@@ -4,6 +4,8 @@ import {useGetAllStatsQuery} from "../../services/stats.js";
 import {convertTicks, formatTimeShort} from "../../common/utils/ticksConverter.js";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 
+const tdClassNames = "text-center text-light"
+
 export function PlayersPage() {
     const {data, error, isLoading, refetch} = useGetAllStatsQuery(undefined);
 
@@ -26,12 +28,11 @@ export function PlayersPage() {
     }, [data, sortConfig]);
 
     const requestSort = (key) => {
-        let direction = 'ascending';
+        let direction = 'descending';
         if (sortConfig.key === key && sortConfig.direction === 'ascending') {
             direction = 'descending';
         } else if (sortConfig.key === key && sortConfig.direction === 'descending') {
-            direction = null;
-            key = null;
+            direction = 'ascending';
         }
         setSortConfig({ key, direction });
     };
@@ -77,6 +78,7 @@ export function PlayersPage() {
                         ['', 'online'],
                         ['Имя', 'name'],
                         ['Время в игре', 'play_time'],
+                        ['Выполнено достижений', 'advancements_count'],
                         ['Блоков выкопано', 'blocks_mined'],
                         ['Вещей скрафчено', 'items_crafted'],
                         ['Мобов убито', 'mob_killed'],
@@ -88,14 +90,14 @@ export function PlayersPage() {
                 <tbody>
                 {sortedData.map((item) => {
                     return (<tr key={item.name}>
-                        <td className="text-center">
+                        <td className={tdClassNames}>
                             {item.online ? <span className="badge rounded-pill bg-success">online</span> :
                                 <span className="badge rounded-pill bg-secondary">offline</span>}
                         </td>
-                        <td className="ps-4 text-light">
-                        {item.name}
+                        <td className={tdClassNames}>
+                            {item.name}
                         </td>
-                        <td className="ps-4 text-light">
+                        <td className={tdClassNames}>
                             <OverlayTrigger
                                 placement="top"
                                 delay={{show: 500, hide: 0}}
@@ -104,10 +106,11 @@ export function PlayersPage() {
                                 <span>{formatTimeShort(convertTicks(item.play_time))}</span>
                             </OverlayTrigger>
                         </td>
-                        <td className="ps-4 text-light">{item.blocks_mined}</td>
-                        <td className="ps-4 text-light">{item.items_crafted}</td>
-                        <td className="ps-4 text-light">{item.mob_killed}</td>
-                        <td className="ps-4 text-light">
+                        <td className={tdClassNames}>{item.advancements_count}</td>
+                        <td className={tdClassNames}>{item.blocks_mined}</td>
+                        <td className={tdClassNames}>{item.items_crafted}</td>
+                        <td className={tdClassNames}>{item.mob_killed}</td>
+                        <td className={tdClassNames}>
                             <OverlayTrigger
                                 placement="top"
                                 delay={{show: 500, hide: 0}}
@@ -116,7 +119,7 @@ export function PlayersPage() {
                                 <span>{formatTimeShort(convertTicks(item.time_since_death))}</span>
                             </OverlayTrigger>
                         </td>
-                        <td className="ps-4 text-light">
+                        <td className={tdClassNames}>
                             <OverlayTrigger
                                 placement="top"
                                 delay={{show: 500, hide: 0}}
