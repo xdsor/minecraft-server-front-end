@@ -8,7 +8,7 @@ export function formatTimeShort(timeObj) {
         timeComponents.push(`${timeObj.months}${getPlural(timeObj.months, 'м', 'м', 'м')}`);
     }
     if (timeObj.weeks > 0) {
-        timeComponents.push(`${timeObj.weeks}${getPlural(timeObj.weeks, 'н', 'н', 'н')}`);
+        timeComponents.push(`${timeObj.weeks}${getPlural(timeObj.weeks, 'нед', 'нед', 'нед')}`);
     }
     if (timeObj.days > 0) {
         timeComponents.push(`${timeObj.days}${getPlural(timeObj.days, 'д', 'д', 'д')}`);

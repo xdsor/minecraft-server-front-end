@@ -1,5 +1,6 @@
 import {useGetServerTimeQuery} from "../../../../services/stats.js";
 import "./ServerStatsComponent.css"
+import {convertTicks, formatTimeShort} from "../../../../common/utils/ticksConverter.js";
 
 export function ServerStatsComponent() {
     const {data} = useGetServerTimeQuery(undefined, {
@@ -52,16 +53,11 @@ function displayMinecraftTime(data) {
         dayTimeColor = "#FFA07A";
     }
 
-    const gameTimeHours = Math.floor(gameTime / (20 * 60 * 60));
-    const gameTimeMinutes = Math.floor((gameTime / (20 * 60)) % 60);
-    const cumulativeTime = `${gameTimeHours}ч ${gameTimeMinutes}м`;
-
-
     return (<div>
         <p>
             На сервере <span style={{color: dayTimeColor}}>{partOfDay}</span> <span
             style={{color: isEnemiesSpawn ? "#FF6B6B" : "#A8E6CF"}}>{enemyStatus}</span>
-            <span> Наиграно <strong>{cumulativeTime}</strong>.</span>
+            <span> Наиграно <strong>{formatTimeShort(convertTicks(gameTime))}</strong>.</span>
         </p>
     </div>)
 }

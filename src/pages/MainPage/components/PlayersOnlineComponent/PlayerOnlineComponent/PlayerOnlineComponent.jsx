@@ -1,4 +1,5 @@
 import "./PlayerOnlineComponent.css"
+import {Link} from "react-router-dom";
 
 export function PlayerOnlineComponent(props) {
     const { name, details } = props.playerInfo;
@@ -38,7 +39,9 @@ export function PlayerOnlineComponent(props) {
             <i className="fas fa-user fa-2x me-3"></i>
             <div className="player-details">
                 <div>
-                    <strong>{name}</strong>
+                    <Link to={`/player/${name}`}>
+                        <strong>{name}</strong>
+                    </Link>
                 </div>
                 <div>
                     Здоровье: <span className="health-icons">{renderHearts().join(' ')}</span>

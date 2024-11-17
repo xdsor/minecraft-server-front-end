@@ -24,3 +24,8 @@ nav {
     font-weight: bold;
     text-decoration: underline;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

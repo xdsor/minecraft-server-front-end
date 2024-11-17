@@ -8,10 +8,13 @@ export const statsApi = createApi({
         getAllStats: builder.query({
            query: () => ``,
         }),
+        getPlayerStats: builder.query({
+            query: (name) => `/${name}`,
+        }),
         getServerTime: builder.query({
             query: () => `/server/time`,
         }),
     }),
 })
 
-export const { useGetServerTimeQuery, useGetAllStatsQuery } = statsApi
+export const { useGetServerTimeQuery, useGetAllStatsQuery, useGetPlayerStatsQuery } = statsApi

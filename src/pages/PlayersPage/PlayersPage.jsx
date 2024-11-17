@@ -3,6 +3,7 @@ import {useMemo, useState} from "react";
 import {useGetAllStatsQuery} from "../../services/stats.js";
 import {convertTicks, formatTimeShort} from "../../common/utils/ticksConverter.js";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const tdClassNames = "text-center text-light"
 
@@ -95,7 +96,9 @@ export function PlayersPage() {
                                 <span className="badge rounded-pill bg-secondary">offline</span>}
                         </td>
                         <td className={tdClassNames}>
-                            {item.name}
+                            <Link to={`/player/${item.name}`}>
+                                {item.name}
+                            </Link>
                         </td>
                         <td className={tdClassNames}>
                             <OverlayTrigger

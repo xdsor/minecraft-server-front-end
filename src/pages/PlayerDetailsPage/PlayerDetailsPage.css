@@ -1,0 +1,10 @@
+.player-name {
+    color: #ffa500;
+}
+
+.player-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
