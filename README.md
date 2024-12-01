@@ -1,8 +1,8 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Settings
+Create .env file with the following constants:
+```
+VITE_BACKEND_URL=http://example.com         # backend url
+VITE_BLUEMAP_URL=http://map.example.com     # map url if you host any
+VITE_SHOW_MAP_FEATURE_TOGGLE=true           # feature toggle to displap map
+VITE_SERVER_IP=192.168.20.58:25565          # server IP address. Used to display it on the page.
+```
