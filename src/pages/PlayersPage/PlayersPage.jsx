@@ -4,6 +4,7 @@ import {useGetAllStatsQuery} from "../../services/stats.js";
 import {convertTicks, formatTimeShort} from "../../common/utils/ticksConverter.js";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import './PlayersPage.css'
 
 const tdClassNames = "text-center text-light"
 
